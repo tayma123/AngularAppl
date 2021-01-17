@@ -4,6 +4,7 @@ import {DISHES} from '../shared/dishes';
 import { Params, ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { DishService } from '../services/dish.service';
+import { identifierModuleUrl } from '@angular/compiler';
 @Component({
   selector: 'app-dishdetail',
   templateUrl: './dishdetail.component.html',
@@ -23,7 +24,8 @@ export class DishdetailComponent implements OnInit {
 
   ngOnInit() {
     const id = this.route.snapshot.params['id'];
-    this.dish = this.dishservice.getDish(id);
+     this.dishservice.getDish(id)
+     .then(dish =>this.dish=dish);
     
     
   }
