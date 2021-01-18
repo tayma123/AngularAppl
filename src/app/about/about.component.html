@@ -71,8 +71,8 @@
     <h2>Corporate Leadership</h2>
     
     <mat-card-content>
-      <mat-list fxFlex>
-        <mat-list-item *ngFor="let leader of leaders">
+      <mat-list *ngIf="leaders"  [@expand] >
+        <mat-list-item *ngFor="let leader of leaders"  >
           <p matLine>
             <span> <img src="{{ leader.image }}" alt="{{ leader.name }}" /></span>
           </p>
