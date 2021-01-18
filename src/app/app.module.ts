@@ -34,6 +34,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { baseURL } from './shared/baseurl';
+import{ProcessHTTPMsgService} from './services/process-httpmsg.service';
 
 @NgModule({
   declarations: [
@@ -73,7 +74,7 @@ import { baseURL } from './shared/baseurl';
     LoginComponent
 ],
   providers: [DishService,
-  PromotionService,LeaderService,{provide: 'BaseURL', useValue: baseURL}],
+  PromotionService,LeaderService,ProcessHTTPMsgService,{provide: 'BaseURL', useValue: baseURL}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
