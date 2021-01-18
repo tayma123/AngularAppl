@@ -5,6 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar'; 
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatDialogModule } from '@angular/material/dialog';
+import { HttpClientModule } from '@angular/common/http';
 
 
 import { MatListModule } from '@angular/material/list';
@@ -32,6 +33,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { baseURL } from './shared/baseurl';
 
 @NgModule({
   declarations: [
@@ -64,12 +66,14 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MatSlideToggleModule,
     ReactiveFormsModule,
     MatProgressSpinnerModule,
+     HttpClientModule ,
+     
   ],
   entryComponents: [
     LoginComponent
 ],
   providers: [DishService,
-  PromotionService,LeaderService],
+  PromotionService,LeaderService,{provide: 'BaseURL', useValue: baseURL}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

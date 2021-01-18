@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild,Inject } from '@angular/core';
 import { Dish} from '../shared/dish';
 import {DISHES} from '../shared/dishes';
 import { Params, ActivatedRoute } from '@angular/router';
@@ -6,6 +6,7 @@ import { Location } from '@angular/common';
 import { DishService } from '../services/dish.service';
 import { identifierModuleUrl } from '@angular/compiler';
 import { switchMap } from 'rxjs/operators';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-dishdetail',
   templateUrl: './dishdetail.component.html',
@@ -18,12 +19,13 @@ export class DishdetailComponent implements OnInit {
   dishIds: string[];
   prev: string;
   next: string;
-  
+ 
   
 
   constructor(private dishservice: DishService,
     private route: ActivatedRoute,
-    private location: Location) { }
+    private location: Location,
+    private fb: FormBuilder,@Inject('BaseURL')private BaseURL) { }
 
   ngOnInit() {
     
@@ -34,6 +36,7 @@ export class DishdetailComponent implements OnInit {
     
     
   }
+  
   goBack(): void {
     this.location.back();
 
